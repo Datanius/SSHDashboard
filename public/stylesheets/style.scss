@@ -1,0 +1,114 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #EFEFEF;
+    font-family: Helvetica, Calibri, Verdana, sans-serif;
+}
+
+.page-body {
+    padding: 40px;
+    .box-content {
+        margin: 0 auto;
+        width: 1024px;
+        max-width: 100%;
+
+        h1 {
+            margin-bottom: 30px;
+            color: #2980b9;
+            cursor: default;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            &[name="openConnection"] {
+                margin: 1px;
+                padding: 20px;
+                background-color: #2c3e50;
+                border: none;
+                border-radius: 10px;
+                color: #FAFAFA;
+                cursor: pointer;
+                font-size: 20px;
+                transition: background-color 0.4s;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                height: 100px;
+                width: 250px;
+
+                &:hover {
+                    background-color: #2980b9;
+                }
+            }
+        }
+
+        form {
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FAFAFA;
+            border-radius: 5px;
+            text-align: center;
+            .form-item {
+                margin-bottom: 10px;
+                label {
+                    display: block;
+                    color: #333333;
+                }
+                input {
+                    &[type="text"],
+                    &[type="password"],
+                    &[type="number"] {
+                        padding: 10px 15px;
+                        background-color: #FAFAFA;
+                        border: #999999 solid 1px;
+                        border-radius: 4px;
+                        color: #333333;
+                        text-align: center;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.btn {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 15px;
+    background-color: #2980b9;
+    border: none;
+    border-radius: 5px;
+    color: #FAFAFA;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    min-width: 200px;
+
+    &:hover {
+        background-color: #2980b9;
+    }
+
+    &.return {
+        background-color: #34495e;
+        opacity: 0.3;
+        transition: opacity 0.4s;
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &.full-width {
+        margin: 0;
+        display: block;
+        opacity: 0.3;
+        transition: opacity 0.4s;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

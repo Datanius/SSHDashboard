@@ -1,0 +1,102 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #EFEFEF;
+  font-family: Helvetica, Calibri, Verdana, sans-serif;
+}
+
+.page-body {
+  padding: 40px;
+}
+.page-body .box-content {
+  margin: 0 auto;
+  width: 1024px;
+  max-width: 100%;
+}
+.page-body .box-content h1 {
+  margin-bottom: 30px;
+  color: #2980b9;
+  cursor: default;
+  text-align: center;
+}
+.page-body .box-content input[type=submit][name=openConnection] {
+  margin: 1px;
+  padding: 20px;
+  background-color: #2c3e50;
+  border: none;
+  border-radius: 10px;
+  color: #FAFAFA;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.4s;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 100px;
+  width: 250px;
+}
+.page-body .box-content input[type=submit][name=openConnection]:hover {
+  background-color: #2980b9;
+}
+.page-body .box-content form {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  text-align: center;
+}
+.page-body .box-content form .form-item {
+  margin-bottom: 10px;
+}
+.page-body .box-content form .form-item label {
+  display: block;
+  color: #333333;
+}
+.page-body .box-content form .form-item input[type=text], .page-body .box-content form .form-item input[type=password], .page-body .box-content form .form-item input[type=number] {
+  padding: 10px 15px;
+  background-color: #FAFAFA;
+  border: #999999 solid 1px;
+  border-radius: 4px;
+  color: #333333;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 15px;
+  background-color: #2980b9;
+  border: none;
+  border-radius: 5px;
+  color: #FAFAFA;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  min-width: 200px;
+}
+.btn:hover {
+  background-color: #2980b9;
+}
+.btn.return {
+  background-color: #34495e;
+  opacity: 0.3;
+  transition: opacity 0.4s;
+}
+.btn.return:hover {
+  opacity: 1;
+}
+.btn.full-width {
+  margin: 0;
+  display: block;
+  opacity: 0.3;
+  transition: opacity 0.4s;
+}
+.btn.full-width:hover {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */
