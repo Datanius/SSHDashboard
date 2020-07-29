@@ -52,7 +52,7 @@ if(isset($_POST["addConnection"])) {
                 </p>
                 <input type="submit" name="addConnection" value="Add" class="btn">
                 <br>
-                <a href="index.php" class="btn return">Back to verview</a>
+                <a href="index.php" class="btn return">Back to overview</a>
             </form>
         </div>
     </div>
