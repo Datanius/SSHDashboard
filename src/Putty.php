@@ -9,9 +9,11 @@ class Putty
             ? $SSHConnection->username . "@" . $SSHConnection->host
             : $SSHConnection->host;
 
+        $Command = new Command("putty");
+        $Command->addArgument("ssh", "{$host} {$SSHConnection->port}");
         if($SSHConnection->password) {
-            return exec("putty -ssh {$host} {$SSHConnection->port} -pw {$SSHConnection->password}");
+            $Command->addArgument("pw", $SSHConnection->password);
         }
-        return exec("putty -ssh {$host} {$SSHConnection->port}");
+        $Command->execute();
     }
 }
