@@ -1,18 +1,18 @@
 <?php
 
 
-class Putty
+class Putty extends Software
 {
-    public static function openConnection(SSHConnection $SSHConnection)
+    public static function openConnection(Connection $Connection)
     {
-        $host = $SSHConnection->username
-            ? $SSHConnection->username . "@" . $SSHConnection->host
-            : $SSHConnection->host;
+        $host = $Connection->username
+            ? $Connection->username . "@" . $Connection->host
+            : $Connection->host;
 
         $Command = new Command("putty");
-        $Command->addArgument("ssh", "{$host} {$SSHConnection->port}");
-        if($SSHConnection->password) {
-            $Command->addArgument("pw", $SSHConnection->password);
+        $Command->addArgument("ssh", "{$host} {$Connection->port}");
+        if($Connection->password) {
+            $Command->addArgument("pw", $Connection->password);
         }
         $Command->execute();
     }

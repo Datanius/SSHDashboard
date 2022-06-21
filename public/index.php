@@ -2,13 +2,23 @@
 
 require_once __DIR__."/../vendor/autoload.php";
 
-$connections = SSHConnection::fromJSONFile(__DIR__."/../resources/connections.json");
+$connections = Connection::fromJSONFile(__DIR__."/../resources/connections.json");
 
 if(isset($_POST["openConnection"])) {
     foreach($connections as $connection) {
-        if($connection->name === $_POST["openConnection"]) {
-            Putty::openConnection($connection);
+        if ($connection->name !== $_POST["openConnection"]) {
             continue;
+        }
+
+        switch ($connection->software) {
+            case "putty":
+                Putty::openConnection($connection);
+                break;
+            case "winscp":
+                WinSCP::openConnection($connection);
+                break;
+            default:
+                break;
         }
     }
 }
@@ -30,12 +40,12 @@ if(isset($_POST["openConnection"])) {
             <h1>All connections</h1>
 
             <form action="" method="POST">
-                <?php foreach($connections as $SSHConnection) { ?>
-                    <input type="submit" name="openConnection" title="<?php echo $SSHConnection->name; ?>" value="<?php echo $SSHConnection->name; ?>">
+                <?php foreach($connections as $connection) { ?>
+                    <input type="submit" name="openConnection" title="<?php echo $connection->name; ?>" value="<?php echo $connection->name; ?>">
                 <?php } ?>
             </form>
 
-            <a href="addConnection.php" class="btn full-width">+ Add SSH connection</a>
+            <a href="addConnection.php" class="btn full-width">+ Add Connection</a>
         </div>
     </div>
 </div>

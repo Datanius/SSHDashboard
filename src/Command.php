@@ -21,12 +21,12 @@ class Command
 
     public function execute()
     {
-        if (substr(php_uname(), 0, 7) == "Windows"){
+        if (substr(php_uname(), 0, 7) == "Windows") {
             pclose(popen("start /B ". $this->toString(), "r"));
+            return;
         }
-        else {
-            exec($this->toString() . " > /dev/null &");
-        }
+
+        exec($this->toString() . " > /dev/null &");
     }
 
     public function toString(): string

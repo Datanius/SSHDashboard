@@ -3,13 +3,15 @@
 require_once __DIR__."/../vendor/autoload.php";
 
 if(isset($_POST["addConnection"])) {
-    $SSHConnection = new SSHConnection();
-    $SSHConnection->name = $_POST["name"];
-    $SSHConnection->host = $_POST["host"];
-    $SSHConnection->username = $_POST["username"];
-    $SSHConnection->port = $_POST["port"];
-    $SSHConnection->password = $_POST["password"];
-    $SSHConnection->addToFile(__DIR__."/../resources/connections.json");
+    $Connection = new Connection();
+    $Connection->name = $_POST["name"];
+    $Connection->host = $_POST["host"];
+    $Connection->username = $_POST["username"];
+    $Connection->port = $_POST["port"];
+    $Connection->password = $_POST["password"];
+    $Connection->software = $_POST["software"];
+    $Connection->protocol = $_POST["protocol"];
+    $Connection->addToFile(__DIR__."/../resources/connections.json");
 }
 
 ?>
@@ -30,6 +32,22 @@ if(isset($_POST["addConnection"])) {
             <h1>Add SSH connection</h1>
 
             <form action="" method="POST">
+                <p class="form-item">
+                    <label for="software">Software:</label>
+                    <select name="software" id="software">
+                        <option value="putty">PuTTY</option>
+                        <option value="winscp">WinSCP</option>
+                    </select>
+                </p>
+                <p class="form-item">
+                    <label for="protocol">Protocol:</label>
+                    <select name="protocol" id="protocol">
+                        <option value="ssh">SSH</option>
+                        <option value="ftp">FTP</option>
+                        <option value="sftp">SFTP</option>
+                        <option value="ftps">FTPS</option>
+                    </select>
+                </p>
                 <p class="form-item">
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name" required>

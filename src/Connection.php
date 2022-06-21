@@ -1,13 +1,15 @@
 <?php
 
 
-class SSHConnection
+class Connection
 {
     public $name = "";
     public $port = 22;
     public $host = "";
     public $username = "";
     public $password = "";
+    public $software = "";
+    public $protocol = "";
 
     public function addToFile(string $file)
     {
@@ -26,7 +28,7 @@ class SSHConnection
 
     /**
      * @param string $file
-     * @return SSHConnection[]
+     * @return Connection[]
      */
     public static function fromJSONFile(string $file): array
     {
@@ -34,13 +36,18 @@ class SSHConnection
             return [];
         }
         return array_map(function($entry) {
-            $SSHConnection = new SSHConnection();
-            $SSHConnection->name = $entry->name ?? "";
-            $SSHConnection->port = $entry->port ?? 22;
-            $SSHConnection->host = $entry->host ?? "";
-            $SSHConnection->username = $entry->username ?? "";
-            $SSHConnection->password = $entry->password ?? "";
-            return $SSHConnection;
+            $Connection = new Connection();
+            $Connection->name = $entry->name ?? "";
+            $Connection->port = $entry->port ?? 22;
+            $Connection->host = $entry->host ?? "";
+            $Connection->username = $entry->username ?? "";
+            $Connection->password = $entry->password ?? "";
+
+            // legacy support
+            $Connection->software = $entry->software ?? "putty";
+            $Connection->protocol = $entry->protocol ?? "ssh";
+
+            return $Connection;
         }, json_decode(file_get_contents($file)));
     }
 }
